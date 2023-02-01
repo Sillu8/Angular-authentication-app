@@ -1,0 +1,60 @@
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-outline mb-4">
+                  <input type="email" formControlName="email" class="form-control form-control-lg" name="email"
+                    [ngClass]="{ 'is-invalid': submitted && formData['email'].errors }" />
+                  <label class="form-label">Your Email</label>
+                  <div *ngIf="submitted && formData['email'].errors" class="invalid-feedback">
+                    <div *ngIf="formData['email'].errors?.['required']">Email is required</div>
+                    <div *ngIf="formData['email'].errors?.['email']">Email must be a valid email address</div>
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" formControlName="password" class="form-control form-control-lg" name="password"
+                    [ngClass]="{ 'is-invalid': submitted && formData['password'].errors }" />
+                  <label class="form-label">Password</label>
+                  <div *ngIf="submitted && formData['password'].errors" class="invalid-feedback">
+                    <div *ngIf="formData['password'].errors?.['required']">Password is required</div>
+                    <div *ngIf="formData['password'].errors?.['minlength']">Password must be at least 5 characters</div>
+                    <div *ngIf="formData['password'].errors?.['maxlength']">Password must be at most 10 characters</div>
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" formControlName="confirmPassword" class="form-control form-control-lg"
+                    name="confirmPassword" [ngClass]="{ 'is-invalid': submitted && formData['confirmPassword'].errors }" />
+                  <label class="form-label">Repeat your password</label>
+                  <div *ngIf="submitted && formData['confirmPassword'].errors" class="invalid-feedback">
+                    <div *ngIf="formData['confirmPassword'].errors?.['required']">Confirm Password is required</div>
+                    <div *ngIf="formData['confirmPassword'].errors?.['mustMatch']">Passwords must match</div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <app-button btnStyle="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                    text="Register"></app-button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"
+                    class="fw-bold text-body"><u routerLink="">Login here</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
