@@ -25,15 +25,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    try {
-      this.submitted = true;
+    this.submitted = true;
 
-      if (this.loginForm.invalid) return;
+    if (this.loginForm.invalid) return;
 
-      const formData = this.loginForm.value;
-      this.auth.login(formData.email, formData.password);
-    } catch (error) {
-      console.log(error);
-    }
+    const formData = this.loginForm.value;
+    this.auth.login(formData.email, formData.password)
   }
 }

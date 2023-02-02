@@ -36,6 +36,11 @@ describe('SignupComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should set submitted to true', () => {
+    component.onSubmit();
+    expect(component.submitted).toBeTruthy();
+  });
+
   it('form invalid when empty', () => {
     expect(component.registerForm.valid).toBeFalsy();
   });

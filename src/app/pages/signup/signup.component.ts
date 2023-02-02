@@ -38,6 +38,6 @@ export class SignupComponent implements OnInit {
 
     const formData = this.registerForm.value;
 
-    this.auth.register(formData.email, formData.password);
+    this.auth.register(formData.email, formData.password);  
   }
 }

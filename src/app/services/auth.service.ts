@@ -25,7 +25,6 @@ export class AuthService {
   async register(email: string, password: string){
     try {
       await this.fireauth.createUserWithEmailAndPassword(email,password)
-      localStorage.setItem('jwt','true');
       this.router.navigate(['/']);
     } catch (error) {
       console.log(error);

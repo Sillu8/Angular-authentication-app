@@ -35,6 +35,11 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should set submitted to true', () => {
+    component.onSubmit();
+    expect(component.submitted).toBeTruthy();
+  });
+
   it('form invalid when empty', () => {
     expect(component.loginForm.valid).toBeFalsy();
   });
