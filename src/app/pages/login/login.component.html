@@ -13,16 +13,25 @@
               <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
                 <div class="form-outline form-white mb-4">
-                  <input type="email" formControlName="email" class="form-control form-control-lg" name="email" />
+                  <input type="email" formControlName="email" class="form-control form-control-lg" name="email"
+                    [ngClass]="{ 'is-invalid': submitted && formData['email'].errors }" />
                   <label class="form-label" for="">Email</label>
+                  <div *ngIf="submitted && formData['email'].errors" class="invalid-feedback">
+                    <div *ngIf="formData['email'].errors?.['required']">Email is required</div>
+                    <div *ngIf="formData['email'].errors?.['email']">Email must be a valid email address</div>
+                  </div>
                 </div>
 
                 <div class="form-outline form-white mb-4">
-                  <input type="password" formControlName="password" class="form-control form-control-lg" name="password" />
+                  <input type="password" formControlName="password" class="form-control form-control-lg" name="password"
+                    [ngClass]="{ 'is-invalid': submitted && formData['password'].errors }" />
                   <label class="form-label">Password</label>
+                  <div *ngIf="submitted && formData['password'].errors" class="invalid-feedback">
+                    <div *ngIf="formData['password'].errors?.['required']">Password is required</div>
+                  </div>
                 </div>
 
-                <app-button btnStyle="btn btn-outline-light btn-lg px-5" text="Login"></app-button>
+                <button type="submit" class="btn btn-outline-light btn-lg px-5">Login</button>
               </form>
             </div>
 

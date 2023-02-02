@@ -28,6 +28,7 @@
                     <div *ngIf="formData['password'].errors?.['required']">Password is required</div>
                     <div *ngIf="formData['password'].errors?.['minlength']">Password must be at least 5 characters</div>
                     <div *ngIf="formData['password'].errors?.['maxlength']">Password must be at most 10 characters</div>
+                    <div *ngIf="formData['password'].errors?.['pattern']">Password must have atleast one smallcase letter, one uppercase letter, one number and one special character.</div>
                   </div>
                 </div>
 
@@ -42,8 +43,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <app-button btnStyle="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
-                    text="Register"></app-button>
+                  <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="#!"

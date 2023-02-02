@@ -13,13 +13,11 @@ export class AuthService {
   async login(email: string, password: string){
     try {
       await this.fireauth.signInWithEmailAndPassword(email,password)
-      localStorage.setItem('token','true');
+      localStorage.setItem('jwt','true');
       this.router.navigate(['home']);
     } catch (error: any) {
-      alert(error.message);
-      console.log(error);
-      this.router.navigate(['login'])
-    }
+      console.log(error)
+    } 
   }
 
 
@@ -27,8 +25,8 @@ export class AuthService {
   async register(email: string, password: string){
     try {
       await this.fireauth.createUserWithEmailAndPassword(email,password)
-      localStorage.setItem('token','true');
-      this.router.navigate(['/login']);
+      localStorage.setItem('jwt','true');
+      this.router.navigate(['/']);
     } catch (error) {
       console.log(error);
       this.router.navigate(['signup'])
@@ -39,8 +37,8 @@ export class AuthService {
   async logout(){
     try {
       await this.fireauth.signOut();
-      localStorage.removeItem('token');
-      this.router.navigate(['/login']);
+      localStorage.removeItem('jwt');
+      this.router.navigate(['/']);
     } catch (error) {
       console.log(error);
     }
