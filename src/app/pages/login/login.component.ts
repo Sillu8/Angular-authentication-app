@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,6 +31,8 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) return;
 
     const formData = this.loginForm.value;
-    this.auth.login(formData.email, formData.password)
+    this.auth.login(formData.email, formData.password);
+    this.loginForm.value.email = '';
+    this.loginForm.value.password = '';
   }
 }
